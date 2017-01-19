@@ -17,7 +17,7 @@ var romanTranslate = function(textInput) {
     return numeral;
   }
 
-  if (parseInt(textInput) <= 3999 && /\d+/.test(textInput) === true && /\./.test(textInput) === false) {
+  if (parseInt(textInput) <= 3999  && /\D+/.test(textInput) !== true) {
     var revNumArray = textInput.split("").reverse();
     var outputNumeral = [];
     for (i=0; i < revNumArray.length; i++) {
@@ -29,6 +29,7 @@ var romanTranslate = function(textInput) {
   } else {
       var textOutput = 'NOT A VALID NUMBA!!!!'
   }
+  return textOutput;
 };
 
 $(function(){
