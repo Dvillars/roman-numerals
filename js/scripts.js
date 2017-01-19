@@ -40,6 +40,17 @@ var numberEvaluate = function(number, position) {
   return numeral;
 }
 
+var romanTranslate = function(numberArray) {
+  var revNumArray = numberArray.reverse();
+  var outputNumeral = [];
+  for (i=0; i < revNumArray.length; i++) {
+    var number = parseInt(revNumArray[i]);
+    outputNumeral.push(numberEvaluate(number, i));
+  };
+  var finalNumeral = outputNumeral.reverse().join("");
+  return finalNumeral;
+};
+
 $(function(){
   $("form.roman-form").submit(function(event) {
     event.preventDefault();
@@ -48,11 +59,11 @@ $(function(){
     var textOutput;
       if (isValid === true) {
         var numberArray = numberSplit(textInput);
-        textOutput = numberEvaluate(parseInt(numberArray[0]), 0);
-        console.log(textOutput);
+        textOutput = romanTranslate(numberArray);
+
       } else {
         textOutput = 'NOT A VALID NUMBA!!!!'
       }
-    $(".results").text(textOutput);
+    $(".result").text(textOutput).slideDown();
   })
 });
