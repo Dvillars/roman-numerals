@@ -18,7 +18,7 @@ var romanTranslate = function(textInput) {
   }
 
   if (parseInt(textInput) <= 3999  && /\D+/.test(textInput) !== true) {
-    var revNumArray = textInput.split("").reverse();
+    var revNumArray = parseInt(textInput).toString().split("").reverse();
     var outputNumeral = [];
     for (i=0; i < revNumArray.length; i++) {
       var number = parseInt(revNumArray[i]);
